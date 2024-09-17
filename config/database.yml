@@ -1,0 +1,24 @@
+
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password: 159357
+
+development:
+  <<: *default
+  database: snake_game_development
+
+
+test:
+  <<: *default
+  database: snake_game_test
+
+
+production:
+  <<: *default
+  database: snake_game_production
+  username: snake_game
+  password: <%= ENV["SNAKE_GAME_DATABASE_PASSWORD"] %>
